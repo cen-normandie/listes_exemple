@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="Empty">
+  <meta name="author" content="Benoit Perceval">
+
+  <title>Empty</title>
+
+  <!-- Bootstrap core CSS -->
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+  <header class="" style="">
+      <div class="container">
+        <div class="bg-secondary d-flex flex-column w-100">
+            <div class="d-flex justify-content-center m-2 text-white">
+                <h4>TEST LISTES</h4>
+            </div>
+        </div>
+      </div>
+  </header>
+
+
+  <section id="none">
+    <div class="container">
+      <div class="bg-light d-flex flex-column">
+            <div class="d-flex justify-content-center flex-column m-4">
+                <div>
+                    <table class="table table-bordered table-hover bg-light text-dark" id="tab_equipe">
+                        <thead>
+                            <tr>
+                                <th class="text-center">
+                                    #
+                                </th>
+                                <th class="text-center">
+                                    Salariés :
+                                </th>
+                                <th class="text-center">
+                                    Nb Heures
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="bg-light d-flex justify-content-around">
+                    <a id="add_row_personne" class="btn btn-secondary pull-left"><strong>+</strong> salarié</a>
+                    <a id="delete_row_personne" class="pull-right btn btn-secondary"><strong>-</strong> salarié</a>
+                </div>
+            </div>
+                
+      </div>
+    </div>
+  </section>
+
+  <footer class="masthead text-center " >
+    <div class="masthead-content">
+      <div class="container">
+        <div class="bg-secondary d-flex flex-column w-100">
+            <div class="d-flex justify-content-center m-2 text-white">
+                <h4>TEST LISTES</h4>
+            </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+
+  <!-- Bootstrap core JavaScript -->
+  <script src="js/jquery.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script type="text/javascript">
+
+// Gestion equipe salariée liée au projet
+var j=0;
+
+select_personne = '<option id="list_personne_'+'00'+'">'+'Charles Bouteiller'+' - '+'00'+'</option>';
+select_personne += '<option id="list_personne_'+'01'+'">'+'Nathalie Moreira'+' - '+'01'+'</option>';
+select_personne += '<option id="list_personne_'+'02'+'">'+'Fabien Buissart'+' - '+'02'+'</option>';
+
+$("#add_row_personne").click(function(){
+    $('#tab_equipe').append('<tr id="personne'+(j)+'"></tr>');
+    $('#personne'+j).html(
+        '<td>'+(j)+'</td><td><form><select id="template_personne"'+(j)+' class="custom-select">'+select_personne+'</select></form></td><td><form><input type="text" value="0" class="form-control input-sm" id="nb_heure_personne"'+(j)+'</input><form></td>'
+        );
+    j++;
+});
+$("#delete_row_personne").click(function(){
+    if(j>0){
+    $("#personne"+(j-1)).remove();
+    j--;
+    }
+});
+
+//simule un click
+$("#add_row_personne").trigger('click');
+
+  </script>
+</body>
+
+</html>
